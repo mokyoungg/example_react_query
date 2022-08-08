@@ -6,6 +6,8 @@ const baseInstance = axios.create({
   baseURL,
 });
 
+baseInstance.interceptors.response.use(({ data }) => data);
+
 const Axios = {
   get: (url: string, request?: any) => baseInstance.get(url, request),
   delete: (url: string, request?: any) => baseInstance.delete(url, request),
